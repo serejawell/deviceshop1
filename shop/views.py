@@ -7,7 +7,27 @@ from shop.models import Product, Category
 def base(request):
     products = Product.objects.all()
     context = {"products": products}
-    return render(request, 'catalog.html',context)
+    return render(request, 'product_list.html',context)
+
+def keyboards(request):
+    products = Product.objects.all()
+    context = {"products": products}
+    return render(request, 'keyboards.html',context)
+
+def headsets(request):
+    products = Product.objects.all()
+    context = {"products": products}
+    return render(request, 'headsets.html',context)
+
+def mousepads(request):
+    products = Product.objects.all()
+    context = {"products": products}
+    return render(request, 'mousepads.html',context)
+
+def mouses(request):
+    products = Product.objects.all()
+    context = {"products": products}
+    return render(request, 'mouses.html',context)
 
 
 # def product_detail(request, category_slug, product_slug):
