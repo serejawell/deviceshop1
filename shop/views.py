@@ -8,7 +8,7 @@ from shop.models import Product, Category
 
 class ProductCreateView(CreateView):
     model = Product
-    fields = ('name', 'description', 'image', 'brand', 'category', 'price')
+    fields = ('name', 'description', 'description_full', 'image', 'brand', 'category', 'price')
     success_url = reverse_lazy('shop:product_list')
 
 
@@ -22,6 +22,7 @@ class ProductListView(ListView):
             queryset = queryset.filter(category__pk=category_id)
         return queryset
 
+
 class ProductDetailView(DetailView):
     model = Product
 
@@ -34,7 +35,7 @@ class ProductDetailView(DetailView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ('name', 'description', 'image', 'brand', 'price')
+    fields = ('name', 'description', 'description_full', 'image', 'brand', 'category', 'price')
 
     def get_success_url(self):
         return reverse('shop:product_detail', args=[self.kwargs.get('pk')])
@@ -51,5 +52,3 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('shop:product_list')
-
-

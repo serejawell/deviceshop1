@@ -59,6 +59,12 @@ class Product(models.Model):
         blank=True,
         null=True,
     )
+    description_full = models.TextField(
+        verbose_name='полное описание',
+        blank=True,
+        null=True,
+        help_text='введите полное описание продукта'
+    )
     image = models.ImageField(
         upload_to="products/",
         blank=True,
