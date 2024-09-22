@@ -233,6 +233,14 @@ python-versions = ">=3.8"
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pytils"
+version = "0.4.1"
+description = "Russian-specific string utils"
+category = "main"
+optional = false
+python-versions = "^3.7"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -307,7 +315,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "47ea5b758d17ba3bb17df692a3d1cd4ce3ebad4fb27f2fcd3023556cbb2a431d"
+content-hash = "f3ed5f2b1ad1990bdf91d2d885c19780297d3e09cdc4be669fd3cdafc2b5071f"
 
 [metadata.files]
 asgiref = []
@@ -328,6 +336,7 @@ psycopg2-binary = []
 ptyprocess = []
 pure-eval = []
 pygments = []
+pytils = []
 six = []
 sqlparse = []
 stack-data = []

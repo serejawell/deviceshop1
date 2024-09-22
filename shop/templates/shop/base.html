@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Favicons -->
@@ -181,11 +182,11 @@
 
 <header data-bs-theme="dark">
 
-    {% include 'includes/inc_menu.html'%}
+    {% include 'shop/includes/inc_menu.html'%}
 
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a href="{% url 'shop:base' %}" class="navbar-brand d-flex align-items-center">
+            <a href="{% url 'shop:product_list' %}" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
                      viewBox="0 0 24 24">
@@ -209,14 +210,10 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Magic Shop</h1>
                 <p class="lead text-body-secondary">For people<br> who wants to win</p>
-                <p>
-                    <a href="{% url 'shop:mouses' %}" class="btn btn-primary my-2">Игровые мыши</a>
-                    <a href="{% url 'shop:keyboards' %}" class="btn btn-primary my-2">Клавиатуры</a>
-                    <a href="{% url 'shop:headsets' %}" class="btn btn-primary my-2">Наушники</a>
-                    <a href="{% url 'shop:mousepads' %}" class="btn btn-primary my-2">Коврики</a>
-
-
-                </p>
+                <a href="" class="btn btn-primary my-2">Игровые мыши</a>
+                <a href="" class="btn btn-primary my-2">Клавиатуры</a>
+                <a href="" class="btn btn-primary my-2">Наушники</a>
+                <a href="" class="btn btn-primary my-2">Коврики</a>
             </div>
         </div>
     </section>

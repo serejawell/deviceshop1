@@ -8,13 +8,15 @@ class Brand(models.Model):
         verbose_name="наименование продукта",
         help_text="введите наименование продукта",
     )
+
     class Meta:
         verbose_name = "Бренд"
         verbose_name_plural = "Бренды"
-        ordering = ["name",]
+        ordering = ["name", ]
 
     def __str__(self):
         return f"{self.name}"
+
 
 class Category(models.Model):
     name = models.CharField(
@@ -44,12 +46,12 @@ class Product(models.Model):
         help_text="введите наименование продукта",
     )
     brand = models.ForeignKey(Brand,
-        on_delete=models.SET_NULL,
-        null=True,
-        verbose_name="бренд",
-        help_text="введите название бренда",
-        related_name="product",
-    )
+                              on_delete=models.SET_NULL,
+                              null=True,
+                              verbose_name="бренд",
+                              help_text="введите название бренда",
+                              related_name="product",
+                              )
     description = models.CharField(
         max_length=150,
         verbose_name="описание",
@@ -76,6 +78,7 @@ class Product(models.Model):
     )
     created_at = models.DateField(default=datetime.now, verbose_name="дата создания")
     updated_at = models.DateField(default=datetime.now, verbose_name="дата редактирования")
+    views_counter = models.PositiveIntegerField(default=0, verbose_name='просмотры')
 
     class Meta:
         verbose_name = "Продукт"
