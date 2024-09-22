@@ -1,11 +1,9 @@
-from audioop import reverse
-
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 
-from shop.models import Product
+from shop.models import Product, Category
 
 
 class ProductCreateView(CreateView):
@@ -17,6 +15,12 @@ class ProductCreateView(CreateView):
 class ProductListView(ListView):
     model = Product
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        category_id = self.kwargs.get('category_id')
+        if category_id:
+            queryset = queryset.filter(category__pk=category_id)
+        return queryset
 
 class ProductDetailView(DetailView):
     model = Product
@@ -47,3 +51,5 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('shop:product_list')
+
+

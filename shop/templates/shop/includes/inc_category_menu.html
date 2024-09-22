@@ -1,0 +1,13 @@
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Magic Shop</h1>
+            <p class="lead text-body-secondary">For people<br> who wants to win</p>
+            <a href="{% url 'shop:product_list'  %}" class="btn btn-primary my-2">Все товары</a>
+            <a href="{% url 'shop:product_list_by_category' 1 %}" class="btn btn-primary my-2">Игровые мыши</a>
+            <a href="{% url 'shop:product_list_by_category' 4 %}" class="btn btn-primary my-2">Клавиатуры</a>
+            <a href="{% url 'shop:product_list_by_category' 3 %}" class="btn btn-primary my-2">Наушники</a>
+            <a href="{% url 'shop:product_list_by_category' 2 %}" class="btn btn-primary my-2">Коврики</a>
+        </div>
+    </div>
+</section>

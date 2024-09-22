@@ -23,7 +23,8 @@
                         <div class="mt-auto d-flex justify-content-between align-items-center">
                             <div class="col">
                                 <h3>{{ object.brand }} {{ object.name }}</h3>
-                                <p class="card-text end">{{ object.description }}</p>
+                                <p class="card-text mt-4">{{ object.description }}</p>
+                                <h5 class="fw-light">{{ object.price | price_filter }} Рублей</h5>
 
                                 <div class="btn-group">
                                     <a class="btn btn-primary" href="{% url 'shop:product_detail' object.pk %}"

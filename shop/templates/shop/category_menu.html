@@ -1,0 +1,14 @@
+{% extends 'shop/base.html'%}
+{% block category_menu %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Magic Shop</h1>
+            {% for category in categories %}
+            <a href="{% url 'shop:product_list_by_category' category.pk %}" class="btn btn-primary my-2">{{
+                category.name }}</a>
+            {% endfor %}
+
+        </div>
+</section>
+{% endblock %}
