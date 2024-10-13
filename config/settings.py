@@ -1,4 +1,4 @@
-
+import os
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS, MEDIA_ROOT
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +41,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Например, smtp.gmail.com для Gmail
+EMAIL_PORT = 587  # Обычно 587 для TLS
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sev231613@gmail.com'  # Ваш email
+EMAIL_HOST_PASSWORD = 'mskq xcbe ugom mqmn'  # Ваш пароль
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 ROOT_URLCONF = 'config.urls'
 
@@ -99,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -116,10 +125,16 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/'  # При входе перенаправляет на данный урл
+LOGOUT_REDIRECT_URL = '/'  # При выходе перенаправляет на данный урл
+LOGIN_URL = 'users:login'

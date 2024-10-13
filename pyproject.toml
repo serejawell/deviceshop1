@@ -6,7 +6,7 @@ authors = ["serejawell <sev2316@yandex.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^5.1.1"
+Django = "^4.2"
 psycopg2-binary = "^2.9.9"
 pillow = "^10.4.0"
 ipython = "^8.27.0"

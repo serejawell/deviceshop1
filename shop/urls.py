@@ -17,3 +17,6 @@ urlpatterns = [
     path('products/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
     path('category/<int:category_id>/', ProductListView.as_view(), name='product_list_by_category'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -45,14 +45,14 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "django"
-version = "5.1.1"
+version = "4.2.16"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.8"
 
 [package.dependencies]
-asgiref = ">=3.8.1,<4"
+asgiref = ">=3.6.0,<4"
 sqlparse = ">=0.3.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
@@ -84,7 +84,7 @@ tests = ["asttokens (>=2.1.0)", "ipython", "pytest", "coverage", "coverage-enabl
 
 [[package]]
 name = "ipython"
-version = "8.27.0"
+version = "8.28.0"
 description = "IPython: Productive Interactive Computing"
 category = "main"
 optional = false
@@ -185,7 +185,7 @@ xmp = ["defusedxml"]
 
 [[package]]
 name = "prompt-toolkit"
-version = "3.0.47"
+version = "3.0.48"
 description = "Library for building powerful interactive command lines in Python"
 category = "main"
 optional = false
@@ -298,7 +298,7 @@ python-versions = ">=3.8"
 
 [[package]]
 name = "tzdata"
-version = "2024.1"
+version = "2024.2"
 description = "Provider of IANA time zone data"
 category = "main"
 optional = false
@@ -315,7 +315,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f3ed5f2b1ad1990bdf91d2d885c19780297d3e09cdc4be669fd3cdafc2b5071f"
+content-hash = "2c4189981bebd2293dfd3e484ac23b1e69c13f85cac8c6bf8093e318d5eff6d9"
 
 [metadata.files]
 asgiref = []
