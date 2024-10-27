@@ -1,43 +1,39 @@
-
 {% load my_tags %}
-{% if user.is_authenticated %}
-<div class="collapse text-bg-dark" id="navbarHeader">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-                <h4 class="text-light">{{ user.first_name }} {{ user.last_name }}</h4>
-                <img src="{{ user.avatar | media_filter }}" class="img-fluid rounded-circle shadow-sm"
-                     alt="Аватар пользователя" style="width: 150px; height: 150px; object-fit: cover;">
-                <p class="text-body-secondary mt-3">Добро пожаловать в ваш профиль!</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-                <h4 class="text-light">Меню сайта</h4>
-                <div class="d-grid gap-2">
-                    <a href="{% url 'shop:product_list' %}" class="btn btn-gradient text-light">Главная</a>
-                    <a href="#" class="btn btn-gradient text-light">Мой профиль</a>
-                    <a href="{% url 'users:logout' %}" class="btn btn-danger">Выход</a>
+<div class="collapse" id="navbarNav">
+    <div class="bg-dark p-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    {% if user.is_authenticated %}
+                    <div class="text-center mb-3">
+                        <h4 class="text-light">Привет, {{ user.first_name }} {{ user.last_name }}!</h4>
+                        <img src="{{ user.avatar | media_filter }}"
+                             class="img-fluid rounded-circle shadow-sm"
+                             alt="Аватар пользователя"
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                        <p class="text-body-secondary mt-2">Добро пожаловать в ваш профиль!</p>
+                    </div>
+                    {% else %}
+                    <div class="text-center mb-3">
+                        <h4 class="text-light">О нас</h4>
+                        <p class="text-body-secondary">Ты играешь и хочешь побеждать. Мы создали этот магазин именно для тебя.</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-light">Меню сайта</h5>
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'shop:product_list' %}" class="btn btn-gradient text-light">Главная</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:profile' %}" class="btn btn-gradient text-light">Мой профиль</a>
+                            <a href="{% url 'users:logout' %}" class="btn btn-danger">Выход</a>
+                        {% else %}
+                            <a href="{% url 'users:register' %}" class="btn btn-gradient text-light">Регистрация</a>
+                            <a href="{% url 'users:login' %}" class="btn btn-gradient text-light">Вход</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% else %}
-<div class="collapse text-bg-dark" id="navbarHeader">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-                <h4 class="text-light">About</h4>
-                <p class="text-body-secondary">Ты играешь и хочешь побеждать.<br>Именно поэтому, мы создали этот магазин именно для тебя.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-                <h4 class="text-light">Меню сайта</h4>
-                <div class="d-grid gap-2">
-                    <a href="{% url 'shop:product_list' %}" class="btn btn-gradient text-light">Главная</a>
-                    <a href="{% url 'users:register' %}" class="btn btn-gradient text-light">Регистрация</a>
-                    <a href="{% url 'users:login' %}" class="btn btn-gradient text-light">Вход</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}

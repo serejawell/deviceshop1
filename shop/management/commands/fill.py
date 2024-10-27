@@ -7,25 +7,26 @@ class Command(BaseCommand):
 
     @staticmethod
     def json_read_categories():
-        with open("fixtures/data.json", encoding="utf-8") as file:
+        with open("data.json", encoding="utf-8") as file:
             data = json.load(file)
             return [item for item in data if item["model"] == "shop.category"]
 
     @staticmethod
     def json_read_products():
-        with open("fixtures/data.json", encoding="utf-8") as file:
+        with open("data.json", encoding="utf-8") as file:
             data = json.load(file)
             return [item for item in data if item["model"] == "shop.product"]
 
     @staticmethod
     def json_read_brands():
-        with open("fixtures/data.json", encoding="utf-8") as file:
+        with open("data.json", encoding="utf-8") as file:
             data = json.load(file)
-            return [item for item in data if item["model"] == "shop.product"]
+            return [item for item in data if item["model"] == "shop.brand"]
 
     def handle(self, *args, **options):
         Product.objects.all().delete()
         Category.objects.all().delete()
+        Brand.objects.all().delete()
 
         categories_for_create = []
         for item in Command.json_read_categories():
@@ -49,6 +50,6 @@ class Command(BaseCommand):
             brands_for_create.append(
                 Product(id=item["pk"], category=category, **brand_data)
             )
-        Brand.objects.bulk_create(products_for_create)
+        Brand.objects.bulk_create(brands_for_create)
 
         print("Выполнено!")
